@@ -12,11 +12,10 @@ function sendNewMessage(message) {
 
 client.on('message', (message) => {
     if (message.author.bot) return;
-    Object.values(config.sync).forEach((value) => {
-        if (value == message.channel.id) {
-            sendNewMessage(message);
-        } else return;
-    });
+
+    if (config.sync[message.guild.id] == message.channel.id) {
+        sendNewMessage(message);
+    } else return;
 });
 
 client.on('ready', () => {
