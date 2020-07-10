@@ -34,9 +34,7 @@ async function createWebhooks() {
                 avatar: 'https://cdn.discordapp.com/embed/avatars/1.png',
                 reason: 'Created by Channel Sync'
             })
-            .then((webhook) => {
-                webhooks.push(webhook);
-            })
+            .then((webhook) => webhooks.push(webhook))
             .catch((err) => console.log(err));
         } else {
             webhooks.push(hook);
