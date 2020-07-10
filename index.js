@@ -16,10 +16,7 @@ function sendNewMessage(message) {
             username = message.author.username;
         }
        
-        hook.send(`**From ${message.guild.name}**\n${message.content}`, {
-            username,
-            avatarURL
-        });
+        hook.send(`**From ${message.guild.name}**\n${message.content}`, { username, avatarURL });
     });
 }
 
@@ -51,6 +48,7 @@ client.on('message', async (message) => {
     if (message.author.bot) return;
 
     if (config.sync[message.guild.id] == message.channel.id) {
+        if (message.content == "") return;
         sendNewMessage(message);
     } else return;
 });

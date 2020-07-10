@@ -22,4 +22,6 @@ To sync up an announcements channel between servers, for sharing important infor
 
 ## Known Issues
 
+This does not currently work with images or sound files, as these are attachments.
 Spamming the synced channel will cause ratelimiting - all the messages will be synced, but may take longer than expected. It's not advised to use this in a busy channel.
+
