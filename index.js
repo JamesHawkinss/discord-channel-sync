@@ -8,8 +8,16 @@ function sendNewMessage(message) {
     webhooks.forEach((hook) => {
         if (hook.channelID == message.channel.id) return;
         const avatarURL = message.author.avatarURL();
+        
+        let username = "Channel Sync";
+        if (Boolean(message.member.nickname)) {
+            username = message.member.nickname
+        } else {
+            username = message.author.username;
+        }
+       
         hook.send(`**From ${message.guild.name}**\n${message.content}`, {
-            username: message.member.nickname,
+            username,
             avatarURL
         });
     });
